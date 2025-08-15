@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <!-- <h1>Conversor base 64</h1>  -->
+    </header>
+    <main>
+        <section>
+            <h2>Transforme qualquer imagem em Base64 em segundos</h2>
+            <br>
+            <p>Arraste, cole ou selecione seu arquivo e veja-o ser automaticamente otimizado, redimensionado e pronto para uso em segundos — sem complicação, sem ferramentas externas e com a qualidade que você precisa.</p>
+            <figure>
+                <img src="5402993_2803242.jpg" alt="">
+            </figure>
+        </section>
+        <section>
+            <div id="resultadoArea">
+                <textarea id="result" readonly></textarea>
+                <button onclick="copy()" id="copy">Copy</button>
+            </div>
+            <label for="imgInput" id="dropZone">
+                <div id="dropZoneBox">
+                    Arraste e solte a imagem aqui<br>ou clique para selecionar
+                </div>
+
+                <img src="" alt="" width="300" id="showImg">
+
+            </label>
+            <input type="file" id="imgInput" accept="image/*">
+        </section>
+    </main>
+</body>
+
+</html>
