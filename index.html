@@ -4,37 +4,49 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Conversor Base64</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="script.js" defer></script>
+    <script src="editorImagem.js" defer></script>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-    <header>
-        <!-- <h1>Conversor base 64</h1>  -->
-    </header>
+    <header></header>
     <main>
-        <section>
+        <section id="apresentacaoContainer">
             <h2>Transforme qualquer imagem em Base64 em segundos</h2>
             <br>
-            <p>Arraste, cole ou selecione seu arquivo e veja-o ser automaticamente otimizado, redimensionado e pronto para uso em segundos — sem complicação, sem ferramentas externas e com a qualidade que você precisa.</p>
+            <p>Arraste, cole ou selecione seu arquivo e veja-o ser automaticamente otimizado, redimensionado e pronto
+                para uso em segundos — sem complicação, sem ferramentas externas e com a qualidade que você precisa.</p>
             <figure>
                 <img src="5402993_2803242.jpg" alt="">
             </figure>
         </section>
+
         <section>
             <div id="resultadoArea">
-                <textarea id="result" readonly></textarea>
-                <button onclick="copy()" id="copy">Copy</button>
+                <div id="base64Container">
+                    <textarea id="result" readonly></textarea>
+                    <button onclick="copy()" id="copy" class="fa-solid fa-copy"></button>
+                </div>
+                <div>
+                    <label for="tamanho">Tamanho da imagem:</label>
+                    <select id="tamanho">
+                        <option value="400">Pequena (400px)</option>
+                        <option value="800" selected>Média (800px)</option>
+                        <option value="1200">Grande (1200px)</option>
+                    </select>
+                </div>
             </div>
+
             <label for="imgInput" id="dropZone">
                 <div id="dropZoneBox">
                     Arraste e solte a imagem aqui<br>ou clique para selecionar
                 </div>
-
                 <img src="" alt="" width="300" id="showImg">
-
             </label>
+
             <input type="file" id="imgInput" accept="image/*">
         </section>
     </main>

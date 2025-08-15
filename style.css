@@ -1,6 +1,5 @@
 :root {
-    --cor1: #243657;
-    --cor2: #35566d;
+    --cor1: #5E90FF;
     --corCard: #fff
 }
 
@@ -31,11 +30,24 @@ section {
     width: min(600px, 100%);
     background-color: var(--corCard);
     border-radius: 15px;
+    height: auto;
+}
+
+#apresentacaoContainer{
+    height: fit-content;
 }
 
 #imgInput,
 #resultadoArea {
     display: none;
+}
+
+#resultadoArea{
+    display: none;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 10px;
+    align-items: start;
 }
 
 #dropZoneBox {
@@ -47,18 +59,52 @@ section {
     margin-bottom: 10px;
     cursor: pointer;
     height: 100%;
+    background-color: #fff;
 }
 
 figure,
 img {
     object-fit: contain;
-    max-width: 100%;
-    ;
+    width: 100%;
 }
 
 #showImg{
     border: 15px solid #eee;
     background-color: #ababab;
-    width: 100%;
     object-fit: contain;
+}
+
+img[src=""] {
+  display: none;
+}
+
+#dropZone.hover {
+   filter: brightness(.5);
+}
+
+#base64Container{
+    width: 100%;
+    display: grid;
+    grid-template-columns: 90% 10%;
+    border: 2px solid var(--cor1);
+    border-radius: 5px;
+}
+
+#base64Container textarea{
+    border: none;
+    resize: none;
+    scrollbar-width: none;
+    padding: 5pX;
+}
+
+#base64Container button{
+    width: auto;
+    border: none;
+
+    background-color: var(--cor1);
+    color: #fff;
+}
+select{
+    border: 2px solid #eee;
+    outline: none;
 }

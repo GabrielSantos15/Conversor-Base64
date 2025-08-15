@@ -30,18 +30,30 @@ function resizeImage(file, maxWidth, maxHeight, quality, callback) {
     };
 }
 
+let arquivoOriginal = null; // Variável para guardar a imagem original
+
 function handleImage(file) {
     if (file && file.type.includes('image')) {
-        resizeImage(file, 800, 800, 0.8, (base64) => {
+        arquivoOriginal = file; // Guarda a imagem original
+        const tamanhoSelecionado = parseInt(document.querySelector("#tamanho").value);
+        resizeImage(file, tamanhoSelecionado, tamanhoSelecionado, 0.8, (base64) => {
             visualizador.src = base64;
             document.querySelector("#result").value = base64;
-            document.querySelector("#dropZoneBox").style.display = "none"
-            document.querySelector("#resultadoArea").style.display = "block"
+            document.querySelector("#dropZoneBox").style.display = "none";
+            document.querySelector("#resultadoArea").style.display = "flex";
         });
     } else {
         alert("Arquivo inválido, escolha, cole ou arraste uma imagem");
     }
 }
+
+// Reprocessar a imagem quando mudar o tamanho
+document.querySelector("#tamanho").addEventListener("change", () => {
+    if (arquivoOriginal) {
+        handleImage(arquivoOriginal);
+    }
+});
+
 
 // Upload via input
 imgInput.addEventListener('change', () => {
@@ -77,6 +89,7 @@ dropZone.addEventListener('drop', (event) => {
         handleImage(event.dataTransfer.files[0]);
     }
 });
+
 
 function copy() {
     let texto = document.querySelector("#result");
